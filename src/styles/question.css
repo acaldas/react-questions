@@ -1,0 +1,21 @@
+.question {
+    display: inline-block;
+    vertical-align: top;
+}
+
+.question .question-answers {
+    overflow: hidden;
+    list-style-type: upper-latin;
+}
+
+.question.closed .question-answers {
+    height: 0px;
+}
+
+.question.correct {
+    color: darkgreen;
+}
+
+.question.wrong {
+    color: darkred;
+}
