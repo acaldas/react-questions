@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, PropTypes } from "react";
 import "../styles/question.css";
 
 class QuestionComponent extends Component {
@@ -17,14 +17,14 @@ class QuestionComponent extends Component {
         const correct = this.props.question.selectAnswer(answer);
         const correctS = correct ? "correct" : "wrong";
         this.setState({
-            status: "closed " + correctS,
+            status: "closed " + correctS
         });
     }
 
     render() {
         return (
             <div className={this.classes()}>
-                <h3 className="question-text">{this.props.question.text}</h3>
+                <h3 className="question-text" onClick={() => this.props.onClick(this.id)}>{this.props.question.text}</h3>
                 <ol className="question-answers">
                     {
                         this.props.question.answers.map(
@@ -41,5 +41,9 @@ class QuestionComponent extends Component {
         );
     }
 }
+
+QuestionComponent.propTypes = {
+    onClick: PropTypes.func.isRequired
+};
 
 export default QuestionComponent;

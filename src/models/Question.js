@@ -12,6 +12,14 @@ class Question extends Base {
         return answer.questionId === this.id && answer.correct;
     }
 
+    static fromJSON(json) {
+        return new Question(
+            json.id,
+            json.text,
+            json.answers
+        );
+    }
+
     static getQuestions() {
         return [
             new Question(
